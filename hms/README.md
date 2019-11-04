@@ -20,9 +20,9 @@ Start by cloning this directory:  https://github.com/Bill-M123/HMS_S4S/tree/mast
 
 - Open a command line. Navigate to ~\hms_coding\hms.  In this directory, you should see a file named: manage.py
 
-- Create a conda environment (see note below if you need help):  __conda create --name _myenv_ --file requirements.txt__ where __myenv__ is the name of your conda environment, and __requirements.txt__ is as described below.
+- Create a conda environment (see note below if you need help):  __conda create --name__ _myenv_ __--file__ _requirements.txt_ where _myenv_ is the name of your conda environment, and _requirements.txt_ is as described below.
 
-- Activate conda environment: __conda activate myenv__
+- Activate conda environment: __conda activate__ _myenv_
 
 - Start the django development server:  __python manage.py runserver__
 
@@ -30,13 +30,31 @@ Start by cloning this directory:  https://github.com/Bill-M123/HMS_S4S/tree/mast
 
 - Login (credentials available elsewhere)
 
+After testing app, you can free up some space on your computer by removing the env that you no longer need with the following commands (on the command line):
+
+- __conda deactivate__
+- __conda env remove -n__ _myenv_
+
 __Note__
 
 App was built in an python 3.7 environment from Anaconda.  Anaconda is available here:  https://www.anaconda.com/distribution/
 
-The actual conda env requirements can be found at: \hms\requirements.txt.  
+The actual conda env requirements can be found in: requirements.txt (this directory).  
 
-This environment is very heavy and would also be suitable for basic data science (including Question 1 of this test) but any recent version of Python(3.7) with django (2.2.1 or later), re, os, and path should work (though is untested at this point due to time constraints.)
+This environment is very heavy and would also be suitable for basic data science (including Question 1 of this test).  It takes a fair bit of time to load, but any recent version of Python(3.7) with django (2.2.1 or later), re, os, and path should work (though is untested at this point due to time constraints.)  
+
+If you are already using Anaconda, try the following from inside your most upto date python env:
+
+__conda install -c anaconda django__
+
+as everything else you need should be resident in the initial distribution.
+
+If you are not using the anaconda python distribution, enter your most up to date virtualenv and run:
+
+__pip install Django--2.2.7__
+
+In either case, after completion, run __python manage.py runserver__.  You may be able to avoid a long anaconda build.  If not, install the full env as above.
+
 
 __Style Notes:__  App roughly styled based on:  http://syncfor.science/
 
