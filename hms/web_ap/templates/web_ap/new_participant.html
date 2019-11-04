@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div class="container-fluid", width=85%>
+<h3>New Participant Form: </h3>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+  </div>
+    {% endblock %}

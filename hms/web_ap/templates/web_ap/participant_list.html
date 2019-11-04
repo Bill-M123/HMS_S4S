@@ -1,0 +1,37 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+  {% if participant_list %}
+  <div class="container-fluid">
+  <ul>
+
+    <table BORDER="2" CELLPADDING="5" CELLSPACING="2" WIDTH=60%>
+        <tr style="text-align:center">
+          <b>Participant List</b>
+        </tr>
+
+        <tr>
+            <td WIDTH="15%"><b>Last Name</b></td>
+            <td WIDTH="15%"><b>First Name</b></td>
+            <td WIDTH="10%"><b>Siblings</b></td>
+            <td WIDTH="10%"><b>Environmental_Exposures</b></td>
+            <td WIDTH="10%"><b>Genetic Mutations</b></td>
+        </tr>
+
+        {% for participant in participant_list %}
+        <tr>
+            <td WIDTH="15%">{{ participant.last_name|slice:":10" }}</td>
+            <td WIDTH="15%">{{ participant.first_name|slice:":10" }}</td>
+            <td WIDTH="10%">{{participant.siblings|slice:":20"}}</td>
+            <td WIDTH="10%">{{participant.environmental_exposures}}</td>
+            <td WIDTH="10%">{{participant.genetic_mutations|slice:":20"}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</ul>
+</div>
+  {% else %}
+    <p>There are no participants in the test yet.</p>
+  {% endif %}
+{% endblock %}

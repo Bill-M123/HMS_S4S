@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block title %}
+    <title>s4s_app</title>{% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Add additional CSS in static file -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-sm-2">
+              <img src="http://syncfor.science/s4s-logo.png" width=100%>
+
+                {% block sidebar %}
+                <div class="container-fluid">
+                <ul class="sidebar-nav">
+
+
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'all_participants' %}">List of Participants</a></li>
+                    <li><a href="{% url 'new_participant' %}">New Particpant</a></li>
+
+                    {% if user.is_authenticated %}
+                        <li>User: {{ user.get_username }}</li>
+                        <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+                    {% endif %}
+
+                </ul>
+                </div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+
+                <p> web app developed by <em>Bill Murphy</em></p>
+                {% endblock %}
+            </div>
+            <div class="col-sm-10 ">
+
+              <h1>Web App Coding Test</h1>
+            </br>
+
+
+
+              {% block content %}{% endblock %}</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<{% extends "base_generic.html" %}
+
+{% block content %}
+  <div class="container-fluid">
+  <h2>Status:</h2>
+
+  <ul>
+    <li><strong>Existing Participants:</strong> {{ num_participants }}</li>
+    <li><strong>Previous page visits:</strong> {{ num_visits }}</li>
+
+  </ul>
+  </div>
+{% endblock %}
